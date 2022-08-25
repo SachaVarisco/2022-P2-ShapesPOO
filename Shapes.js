@@ -10,6 +10,9 @@ class Shape {
     toString() {
         return Object.getPrototypeOf(this).constructor.name;
     }
+    Eso(){
+        console.log(this.toString(),`Area: ${this.area()} - Perimeter: ${this.perimeter()}`)
+    }
 }
   
 class Circle extends Shape {
@@ -56,8 +59,41 @@ class Triangle extends Shape {
         return this.base * this.height / 2;
     }
 }
+class Trapecio extends Shape{
+    constructor(b, h, c){
+    super();
+    this.base = b;
+    this.height = h;
+    this.ceiling = c;
+    const a = b - c / 2;
+    this.C = a * a + h * h;
+    }
+    perimeter(){
+        return Math.sqrt(this.C) + this.base + this.ceiling; 
+    }
+    area(){
+        return this.base * this.ceiling * this.height / 2;
+    }
+}
+class Rombo extends Shape{
+    constructor(D, d ){
+    super();
+    this.Diagonal = D
+    this.diagonal = d
+    const a = D/2
+    const b = d/2
+    this.c = a * a + b * b;
+    }
+    perimeter(){
+        return Math.sqrt(this.c)*4; 
+    }
+    area(){
+        return this.Diagonal * this.diagonal / 2;
+    }
+}
 
-export {Circle, Rectangle, Square, Triangle};
+
+export {Circle, Rectangle, Square, Triangle, Trapecio, Rombo};
 
 
 
