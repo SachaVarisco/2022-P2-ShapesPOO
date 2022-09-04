@@ -59,6 +59,22 @@ class Triangle extends Shape {
         return this.base * this.height / 2;
     }
 }
+class Triangulo extends Triangle{
+    constructor(a, b, c){
+        super();
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        const s = (a + b + c)/2
+        this.T = s*(s-a)*(s-b)*(s-c);
+    }
+    perimeter(){
+        return this.a + this.b + this.c;
+    }
+    area(){
+        return Math.sqrt(this.T);
+    }
+}
 class Trapecio extends Shape{
     constructor(b, h, c){
     super();
@@ -93,7 +109,7 @@ class Rombo extends Shape{
 }
 
 
-export {Circle, Rectangle, Square, Triangle, Trapecio, Rombo};
+export {Circle, Rectangle, Square, Triangle, Triangulo, Trapecio, Rombo};
 
 
 
